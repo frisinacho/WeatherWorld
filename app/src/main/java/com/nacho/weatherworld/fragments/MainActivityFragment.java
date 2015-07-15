@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nacho.weatherworld.R;
 import com.nacho.weatherworld.activities.CityWeatherActivity;
@@ -43,6 +44,17 @@ public class MainActivityFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), CityWeatherActivity.class);
 
                 startActivity(intent);
+            }
+        });
+
+        mListCities.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                // true: LongClick existed
+                // false: LongClick = Click
+
+
+                return true;
             }
         });
 
