@@ -49,5 +49,7 @@ public class CityWeatherActivity extends Activity {
             e.printStackTrace();
         }
 
+        String urlIcon = String.format(Constants.WEATHER_ICON_URL, iconName);
+
     }
 }
