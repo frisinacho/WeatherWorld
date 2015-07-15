@@ -53,7 +53,7 @@ public class MainActivityFragment extends Fragment {
                 // true: LongClick existed
                 // false: LongClick = Click
 
-
+                Toast.makeText(getActivity(), "Long Click", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
