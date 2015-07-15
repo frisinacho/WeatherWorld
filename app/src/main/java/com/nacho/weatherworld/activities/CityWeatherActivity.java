@@ -7,6 +7,9 @@ import android.os.Bundle;
 import com.nacho.weatherworld.R;
 import com.nacho.weatherworld.model.City;
 import com.nacho.weatherworld.util.Constants;
+import com.nacho.weatherworld.util.JSONUtil;
+
+import org.json.JSONObject;
 
 public class CityWeatherActivity extends Activity {
 
@@ -27,5 +30,8 @@ public class CityWeatherActivity extends Activity {
 
     private void getWeatherDataForCityNamed(String name) {
 
+        String urlRequest = String.format(Constants.BASE_URL, name);
+
+        JSONObject json = JSONUtil.getJSONFromHttpRequest(urlRequest);
     }
 }
