@@ -21,7 +21,7 @@ public class Cities implements ModelAggregate<City>{
         return null;
     }
 
-    // Lazy getter
+    // lazy getter
     public List<City> getCities() {
         if (this.cities == null) {
             this.cities = new ArrayList<City>();
