@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.nacho.weatherworld.model.Cities;
+import com.nacho.weatherworld.model.City;
 import com.nacho.weatherworld.model.MockWeatherAPI;
 
 public class MainActivityFragment extends Fragment {
@@ -28,7 +30,7 @@ public class MainActivityFragment extends Fragment {
 
         Cities cities = MockWeatherAPI.getAllCities();
 
-        mAdapter = new CityAdapter();
+        mAdapter = new CityAdapter(cities, inflater);
         mListCities.setAdapter(mAdapter);
 
         return view;
@@ -36,24 +38,45 @@ public class MainActivityFragment extends Fragment {
 
     class CityAdapter extends BaseAdapter {
 
+        Cities cities;
+        LayoutInflater inflater;
+
+        public CityAdapter(Cities cities, LayoutInflater inflater) {
+            this.cities = cities;
+        }
+
         @Override
         public int getCount() {
+            return  cities.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return cities.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
             return 0;
         }
 
         @Override
-        public Object getItem(int i) {
-            return null;
-        }
+        public View getView(int position, View convertView, ViewGroup parent) {
+            int layoutId = 0;
 
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
+            if (position % 2 == 0){
+                layoutId = R.layout.row_left_icon;
+            } else {
+                layoutId = R.layout.row_right_icon;
+            }
 
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
+            View row = inflater.inflate(layoutId, parent);
+            TextView txtCityName = (TextView) row.findViewById(R.id.city_name);
+
+            City city = this.cities.get(position);
+            txtCityName.setText(city.getName());
+
+            return row;
         }
     }
 }
