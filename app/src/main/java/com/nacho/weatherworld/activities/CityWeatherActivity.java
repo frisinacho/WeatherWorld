@@ -18,5 +18,6 @@ public class CityWeatherActivity extends Activity {
         Intent intent = getIntent();
 
         City city = (City) intent.getParcelableExtra(Constants.INTENT_KEY_CITY);
+
     }
 }

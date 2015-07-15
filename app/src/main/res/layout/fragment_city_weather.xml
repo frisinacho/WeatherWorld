@@ -9,8 +9,23 @@
                 tools:context="com.nacho.weatherworld.fragments.CityWeatherActivityFragment">
 
     <TextView
-        android:text="@string/hello_world"
+        android:id="@+id/city_name"
+        tools:text="City Name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="80sp"
+        android:textColor="@color/weather"
+        />
+
+    <TextView
+        android:id="@+id/temperature"
+        tools:text="21 ºC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="80sp"
+        android:textColor="@color/weather"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
 
 </RelativeLayout>
