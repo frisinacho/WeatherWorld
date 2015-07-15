@@ -5,15 +5,14 @@ import java.util.List;
 
 public class Cities implements ModelAggregate<City>{
 
-    private List<City> cities = new ArrayList<City>();
+    private List<City> cities;
 
     public Cities() {
-        cities = new ArrayList<City>();
     }
 
     @Override
     public int size() {
-        return 0;
+        return getCities().size();
     }
 
     @Override
