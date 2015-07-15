@@ -16,6 +16,8 @@ import org.json.JSONObject;
 public class CityWeatherActivity extends Activity {
 
     private City city;
+    String temp = null;
+    String iconName = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,6 @@ public class CityWeatherActivity extends Activity {
         String urlRequest = String.format(Constants.BASE_URL, name);
 
         JSONObject json = JSONUtil.getJSONFromHttpRequest(urlRequest);
-        String temp = null;
-        String iconName = null;
         try {
             JSONObject main = json.getJSONObject("main");
             temp = main.getString("temp");
