@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.nacho.weatherworld.model.Cities;
+import com.nacho.weatherworld.model.MockWeatherAPI;
+
 public class MainActivityFragment extends Fragment {
 
     private ListView mListCities;
@@ -22,6 +25,9 @@ public class MainActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         mListCities = (ListView) view.findViewById(R.id.cityList);
+
+        Cities cities = MockWeatherAPI.getAllCities();
+
         mAdapter = new CityAdapter();
         mListCities.setAdapter(mAdapter);
 
