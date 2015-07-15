@@ -1,9 +1,11 @@
-package com.nacho.weatherworld;
+package com.nacho.weatherworld.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.nacho.weatherworld.R;
 
 public class MainActivity extends Activity {
 
