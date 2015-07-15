@@ -10,6 +10,8 @@ import com.nacho.weatherworld.util.Constants;
 
 public class CityWeatherActivity extends Activity {
 
+    private City city;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +19,13 @@ public class CityWeatherActivity extends Activity {
 
         Intent intent = getIntent();
 
-        City city = (City) intent.getParcelableExtra(Constants.INTENT_KEY_CITY);
+        city = (City) intent.getParcelableExtra(Constants.INTENT_KEY_CITY);
+
+        getWeatherDataForCityNamed(city.getName());
+
+    }
+
+    private void getWeatherDataForCityNamed(String name) {
 
     }
 }
