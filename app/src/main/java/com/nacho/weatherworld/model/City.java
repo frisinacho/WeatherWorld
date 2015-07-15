@@ -3,7 +3,7 @@ package com.nacho.weatherworld.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class City implements Parcelable{
+public class City implements Parcelable {
     private String name;
     private String temp;
 
@@ -36,7 +36,23 @@ public class City implements Parcelable{
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.temp);
     }
+
+    protected City(Parcel in) {
+        this.name = in.readString();
+        this.temp = in.readString();
+    }
+
+    public static final Parcelable.Creator<City> CREATOR = new Parcelable.Creator<City>() {
+        public City createFromParcel(Parcel source) {
+            return new City(source);
+        }
+
+        public City[] newArray(int size) {
+            return new City[size];
+        }
+    };
 }
