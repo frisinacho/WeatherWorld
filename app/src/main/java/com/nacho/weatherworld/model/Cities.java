@@ -24,6 +24,11 @@ public class Cities implements ModelAggregate<City>{
         return null;
     }
 
+    @Override
+    public void add(City city) {
+        getCities().add(city);
+    }
+
     // lazy getter
     public List<City> getCities() {
         if (this.cities == null) {
