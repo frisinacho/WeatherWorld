@@ -31,11 +31,9 @@ public class CityWeatherActivity extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-
+                getWeatherDataForCityNamed(city.getName());
             }
         }).start();
-
-        getWeatherDataForCityNamed(city.getName());
 
     }
 
