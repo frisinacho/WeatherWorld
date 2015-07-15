@@ -9,6 +9,8 @@ import com.nacho.weatherworld.model.City;
 import com.nacho.weatherworld.util.Constants;
 import com.nacho.weatherworld.util.JSONUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class CityWeatherActivity extends Activity {
@@ -33,5 +35,19 @@ public class CityWeatherActivity extends Activity {
         String urlRequest = String.format(Constants.BASE_URL, name);
 
         JSONObject json = JSONUtil.getJSONFromHttpRequest(urlRequest);
+        String temp = null;
+        String iconName = null;
+        try {
+            JSONObject main = json.getJSONObject("main");
+            temp = main.getString("temp");
+
+            JSONArray weather = json.getJSONArray("weather");
+            JSONObject weather1 = weather.getJSONObject(0);
+            iconName = weather1.getString("icon");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }
