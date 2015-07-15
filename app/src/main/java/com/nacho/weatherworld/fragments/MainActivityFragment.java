@@ -1,15 +1,18 @@
 package com.nacho.weatherworld.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.nacho.weatherworld.R;
+import com.nacho.weatherworld.activities.CityWeatherActivity;
 import com.nacho.weatherworld.model.Cities;
 import com.nacho.weatherworld.model.City;
 import com.nacho.weatherworld.model.MockWeatherAPI;
@@ -33,6 +36,15 @@ public class MainActivityFragment extends Fragment {
 
         mAdapter = new CityAdapter(cities, inflater);
         mListCities.setAdapter(mAdapter);
+
+        mListCities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), CityWeatherActivity.class);
+
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
