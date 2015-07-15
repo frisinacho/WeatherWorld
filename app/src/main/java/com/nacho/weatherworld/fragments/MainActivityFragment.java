@@ -1,4 +1,4 @@
-package com.nacho.weatherworld;
+package com.nacho.weatherworld.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.nacho.weatherworld.R;
 import com.nacho.weatherworld.model.Cities;
 import com.nacho.weatherworld.model.City;
 import com.nacho.weatherworld.model.MockWeatherAPI;
