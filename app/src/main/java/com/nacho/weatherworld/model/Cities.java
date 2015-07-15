@@ -17,7 +17,7 @@ public class Cities implements ModelAggregate<City>{
 
     @Override
     public City get(int index) {
-        if (index < getCities().size() && index > 0) {
+        if (index >= 0 && index < getCities().size()) {
             return getCities().get(index);
         }
 
