@@ -43,6 +43,7 @@ public class MainActivityFragment extends Fragment {
 
         public CityAdapter(Cities cities, LayoutInflater inflater) {
             this.cities = cities;
+            this.inflater = inflater;
         }
 
         @Override
@@ -70,7 +71,7 @@ public class MainActivityFragment extends Fragment {
                 layoutId = R.layout.row_right_icon;
             }
 
-            View row = inflater.inflate(layoutId, parent);
+            View row = inflater.inflate(layoutId, parent, false);
             TextView txtCityName = (TextView) row.findViewById(R.id.city_name);
 
             City city = this.cities.get(position);
