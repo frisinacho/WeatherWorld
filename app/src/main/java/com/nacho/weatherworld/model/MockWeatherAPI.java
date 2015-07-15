@@ -5,7 +5,8 @@ public class MockWeatherAPI {
         Cities allCities = new Cities();
 
         for (int i =0; i<18; i++) {
-            City city = new City("City " + i, "" + (i+4));
+            City city = new City("Malaga", "" + (i+4));
+            // City city = new City("City " + i, "" + (i+4));
 
             allCities.add(city);
         }
