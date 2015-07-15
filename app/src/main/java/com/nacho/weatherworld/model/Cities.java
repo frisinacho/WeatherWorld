@@ -29,7 +29,7 @@ public class Cities implements ModelAggregate<City>{
         getCities().add(city);
     }
 
-    // lazy getter
+    // lazy getter - The list it's not created until the first time it's used
     public List<City> getCities() {
         if (this.cities == null) {
             this.cities = new ArrayList<City>();
