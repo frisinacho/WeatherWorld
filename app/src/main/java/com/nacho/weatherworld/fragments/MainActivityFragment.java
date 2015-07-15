@@ -17,6 +17,7 @@ import com.nacho.weatherworld.activities.CityWeatherActivity;
 import com.nacho.weatherworld.model.Cities;
 import com.nacho.weatherworld.model.City;
 import com.nacho.weatherworld.model.MockWeatherAPI;
+import com.nacho.weatherworld.util.Constants;
 
 public class MainActivityFragment extends Fragment {
 
@@ -33,7 +34,7 @@ public class MainActivityFragment extends Fragment {
 
         mListCities = (ListView) view.findViewById(R.id.cityList);
 
-        Cities cities = MockWeatherAPI.getAllCities();
+        final Cities cities = MockWeatherAPI.getAllCities();
 
         mAdapter = new CityAdapter(cities, inflater);
         mListCities.setAdapter(mAdapter);
@@ -43,8 +44,9 @@ public class MainActivityFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), CityWeatherActivity.class);
 
-                intent.putExtra
+                City city = cities.get(position);
 
+                intent.putExtra(Constants.INTENT_KEY_CITY, city);
                 startActivity(intent);
             }
         });
