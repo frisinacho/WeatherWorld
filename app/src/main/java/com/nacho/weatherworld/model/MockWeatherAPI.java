@@ -6,6 +6,8 @@ public class MockWeatherAPI {
 
         for (int i =0; i<10; i++) {
             City city = new City("City " + i, "" + (i+4));
+
+            allCities.add(city);
         }
 
         return allCities;
