@@ -64,7 +64,7 @@ public class MainActivityFragment extends Fragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            int layoutId = 0;
+            int layoutId;
 
             if (position % 2 == 0){
                 layoutId = R.layout.row_left_icon;
