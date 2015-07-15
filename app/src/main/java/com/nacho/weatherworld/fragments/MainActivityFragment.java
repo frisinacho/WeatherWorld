@@ -47,9 +47,9 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
-        mListCities.setOnLongClickListener(new View.OnLongClickListener() {
+        mListCities.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onLongClick(View view) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // true: LongClick existed
                 // false: LongClick = Click
 
