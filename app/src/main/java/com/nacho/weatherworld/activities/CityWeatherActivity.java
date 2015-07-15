@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.nacho.weatherworld.R;
+import com.nacho.weatherworld.fragments.CityWeatherActivityFragment;
 import com.nacho.weatherworld.model.City;
 import com.nacho.weatherworld.util.Constants;
 import com.nacho.weatherworld.util.JSONUtil;
@@ -18,6 +19,7 @@ public class CityWeatherActivity extends Activity {
     private City city;
     String temp = null;
     String iconName = null;
+    CityWeatherActivityFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +30,20 @@ public class CityWeatherActivity extends Activity {
 
         city = (City) intent.getParcelableExtra(Constants.INTENT_KEY_CITY);
 
+        fragment = (CityWeatherActivityFragment) getFragmentManager().findFragmentById(R.id.fragment);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 getWeatherDataForCityNamed(city.getName());
+                // BACKGROUND WORK
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        fragment.refresh(temp, iconName);
+                    }
+                });
             }
         }).start();
 
