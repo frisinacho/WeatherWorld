@@ -1,6 +1,9 @@
 package com.nacho.weatherworld.model;
 
-public class City {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class City implements Parcelable{
     private String name;
     private String temp;
 
@@ -25,5 +28,15 @@ public class City {
 
     public void setTemp(String temp) {
         this.temp = temp;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
     }
 }
