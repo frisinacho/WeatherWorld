@@ -27,7 +27,7 @@
 
     <TextView
         android:id="@+id/temperature"
-        tools:text="21 ºC"
+        tools:text="XX ºC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="80sp"
