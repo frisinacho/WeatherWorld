@@ -11,6 +11,7 @@ import android.widget.ListView;
 public class MainActivityFragment extends Fragment {
 
     private ListView mListCities;
+    private CityAdapter mAdapter;
 
     public MainActivityFragment() {
     }
@@ -21,6 +22,8 @@ public class MainActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         mListCities = (ListView) view.findViewById(R.id.cityList);
+        mAdapter = new CityAdapter();
+        mListCities.setAdapter(mAdapter);
 
         return view;
     }
