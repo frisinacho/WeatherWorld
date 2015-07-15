@@ -28,6 +28,13 @@ public class CityWeatherActivity extends Activity {
 
         city = (City) intent.getParcelableExtra(Constants.INTENT_KEY_CITY);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }).start();
+
         getWeatherDataForCityNamed(city.getName());
 
     }
