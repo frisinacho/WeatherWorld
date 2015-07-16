@@ -35,7 +35,7 @@ public class CityWeatherActivityFragment extends Fragment {
 
     public void refresh(String name, String temp, Bitmap iconBitmap) {
         cityName.setText(name);
-        temperature.setText(temp);
+        temperature.setText(temp.concat(" ºC"));
         weatherIcon.setImageBitmap(iconBitmap);
     }
 }
