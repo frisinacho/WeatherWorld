@@ -41,7 +41,7 @@ public class CityWeatherActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        fragment.refresh(temp, iconName);
+                        fragment.refresh(city.getName(), temp, iconName);
                     }
                 });
             }

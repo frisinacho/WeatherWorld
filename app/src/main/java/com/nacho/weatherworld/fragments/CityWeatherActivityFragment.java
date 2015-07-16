@@ -32,7 +32,8 @@ public class CityWeatherActivityFragment extends Fragment {
         return view;
     }
 
-    public void refresh(String temp, String iconName) {
+    public void refresh(String name, String temp, String iconName) {
+        cityName.setText(name);
         temperature.setText(temp);
     }
 }
