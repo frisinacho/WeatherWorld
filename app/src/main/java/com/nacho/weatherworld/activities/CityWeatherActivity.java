@@ -2,7 +2,10 @@ package com.nacho.weatherworld.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.nacho.weatherworld.R;
 import com.nacho.weatherworld.fragments.CityWeatherActivityFragment;
@@ -14,11 +17,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class CityWeatherActivity extends Activity {
 
     private City city;
     String temp = null;
     String iconName = null;
+    Bitmap iconBitmap = null;
     CityWeatherActivityFragment fragment;
 
     @Override
@@ -41,7 +50,7 @@ public class CityWeatherActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        fragment.refresh(city.getName(), temp, iconName);
+                        fragment.refresh(city.getName(), temp, iconBitmap);
                     }
                 });
             }
@@ -67,6 +76,19 @@ public class CityWeatherActivity extends Activity {
         }
 
         String urlIcon = String.format(Constants.WEATHER_ICON_URL, iconName);
+
+        try {
+            URL imageUrl = new URL(urlIcon);
+            URLConnection connection = imageUrl.openConnection();
+            iconBitmap = BitmapFactory.decodeStream(connection.getInputStream());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            Log.e("", "Image downloading problem ".concat(urlIcon));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 }

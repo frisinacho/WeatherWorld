@@ -1,6 +1,7 @@
 package com.nacho.weatherworld.fragments;
 
 import android.app.Fragment;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,9 @@ public class CityWeatherActivityFragment extends Fragment {
         return view;
     }
 
-    public void refresh(String name, String temp, String iconName) {
+    public void refresh(String name, String temp, Bitmap iconBitmap) {
         cityName.setText(name);
         temperature.setText(temp);
+        weatherIcon.setImageBitmap(iconBitmap);
     }
 }
